@@ -114,8 +114,8 @@ export default {
 
         //filesというプロパティで選択したファイル情報(fileInput)を取得できる
         const file = this.$refs.fileInput.files[0]
-        //ファイル保存先の指定...$(file.name)で画像名
-        const filePath = `/user/${file.name}`
+        //ファイル保存先の指定...${file.name)}で画像名 ==>こうすると変更した画像が随時保存されてしまうため、あえて関数を拒否file.name→現在使用中のものだけがfirebaseのストレージに保存される！
+        const filePath = `/user/file.name`
         console.log(file)
 
         firebase.storage().ref() //ファイアベースのストレージメソッドを使用してインスタンスを取得
