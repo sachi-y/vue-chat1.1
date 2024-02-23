@@ -25,7 +25,7 @@
                 <v-col cols="12">
                   <v-text-field
                     v-model="name"
-                    label="Room Name"
+                    label="Room Name*"
                     required
                   ></v-text-field>
                 </v-col>
@@ -77,7 +77,7 @@ import firebase from "../../firebase/firebase"
 
             let thumbnailUrl = ""
             if(this.file){
-                const filePath = '/room/$(this.file.name)'
+                const filePath = `/room/${this.file.name}`
                 await firebase.storage().ref() //ファイアベースのストレージメソッドを使用してインスタンスを取得
                 .child(filePath) //childメソッドでパスを指定
                 .put(this.file)
